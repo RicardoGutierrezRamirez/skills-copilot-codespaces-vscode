@@ -78,4 +78,7 @@ router.get("/", async (req, res) => {
     const comments = await Comment.find().sort({ date: -1 });
     res.json(comments);
   } catch (error) {
-    console.error
+        console.error(error.message);
+        res.status(500).send("Server error");
+      }
+    });
